@@ -76,7 +76,7 @@ Partiremos de una animación inicial predefinida en la que la posición de la pe
 
 3. Utilización de cinemática directa e inversa
 
-- Desde la pose 'base' del modelo, animar el personaje:
+- Desde la pose 'base' del modelo, animar el personaje.
 - Moviendo un brazo diciendo 'adios'
 - Limpiando una mesa con la mano
 
