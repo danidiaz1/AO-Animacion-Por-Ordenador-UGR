@@ -1,0 +1,29 @@
+Proceso de construcción del rig:
+
+Se ha decidido construir el rig mediante enlaces de padre a hijo entre piezas (sin huesos). 
+Se ha realizado así porque, para un modelo tan sencillo (y por falta de tiempo), no es tan crucial añadir huesos,
+cuando además la utilidad de estos es mayor en modelos cuya malla es deformable (piel de un personaje, 
+por ejemplo). En un caso robótico como el de la grúa no creo que sea tan relevante. Como desventaja está
+que perdemos la posibilidad de los resolutores de cinemática inversa que llevan incorporados los huesos
+en Max. 
+
+El gancho de la grúa está creado como un pistón. Se ha logrado que se comporte de manera realista haciendo que el cilindro
+superior del pistón siempre mire al extremo del cilindro inferior y viceversa, con restricciones de LookAt.
+La caja tiene una restricción de enlace a la parte inferior de la grúa. No es un enlace padre a hijo como tal, ya que
+puede que queramos liberar la caja de la grua en algún momento de la animación.
+
+Uso del rig:
+
+Se han creado los siguientes controles.
+
+	- Anillo azul: Para recolocar toda la estructura del objeto (moverla/girarla en cualquier dirección).
+	- Anillo rojo 1: Para girar respecto al eje Z la base de la grua.
+	- Anillo rojo 2: Para girar respecto al eje Z la parte superior de la grúa.
+	- Slider pos x grua: Para mover el gancho de la grua
+	- Slider extensión grua: Para subir o bajar el gancho de la grúa.
+	- Todos los controles están limitados para un comportanmiento correcto de la grúa.
+	
+Se han creado dos animaciones que no son cíclicas, porque si así lo fuesen, gran parte de los controles no se vería en acción.
+Por ejemplo, una animación cíclica podría ser soltar una caja, y otra, cogerla. En ambos casos solo se vería el control para extender
+el gancho de la grúa. Para la práctica de Unity se harán este tipo de animaciones cíclicas más sencillas, que son más adaptables
+a un motor de juegos.

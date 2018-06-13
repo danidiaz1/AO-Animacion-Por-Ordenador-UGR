@@ -1,0 +1,34 @@
+Pregunta: ¿qué crees que es mejor utilizar, cinemática directa (FK) o inversa (IK)?
+
+En la animación del saludo:
+
+Con cinemática directa, tenemos que rotar cada articulación para situar al personaje exactamente como queremos. 
+Esto puede llegar a ser muy tedioso. Para lograr una animación de un simple saludo, hay que rotar todas las articulaciones del brazo. 
+Sin embargo, la FK nos da un control total sobre la animación: las articulaciones estarán exactamente donde queramos.  
+Es el tipo de animación típica de los modelos jerárquicos: Si aplicas una rotación a un padre, el hijo se verá modificado.
+
+Con cinemática inversa, se puede realizar una animación de un rig de manera mucho más intuitiva. Para lograr el saludo, solo tenemos
+que colocar la mano donde queremos y las articulaciones se moverán automáticamente. Pero también tiene sus pegas. Si queremos hacer
+movimientos en los que la posición inicial y final varían mucho, puede que el comportamiento de las articulaciones sea extraño, que
+se realicen movimientos que no son naturales (se puede corregir limitando los giros de las articulaciones) o que los movimientos 
+no sean los que queremos exactamente. 
+
+En este caso me ha resultado más rápido y sencillo hacerlo con IK, ya que los movimientos entre posicines iniciales y finales 
+no han variado demasiado.
+
+
+En la animación de limpiar la mesa:
+
+Con cinemática directa, ha sido bastante tedioso tener que colocar todas las articulaciones tal y como las quería, ya que esta animación
+es más compleja que la del saludo: Requiere mover muchas más partes del rig.
+
+En cuanto a la cinemática inversa, ha sido más sencillo, pero en algunos momentos, el sistema no hacía la interpolación correcta y 
+el brazo llegaba a "atravesar" la mesa, por lo que he tenido que crear algunas claves intermedias para corregirlo.
+
+De nuevo, ha sido más sencillo trabajar con cinemática inversa, por comodidad y rapidez, aunque haya dado algunos problemas.
+
+
+
+Como conclusión final, lo mejor sería utilizar una combinación de las dos. Por ejemplo, hacer que la cinemática inversa haga
+la mayor parte del trabajo (colocar las poses en los lugares indicados) y retocar mediante cinemática directa (mediante giros) 
+la posición exacta de las articulaciones.
